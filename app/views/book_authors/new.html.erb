@@ -1,0 +1,16 @@
+<%= link_to "Books Index", books_path%><br>
+<%= link_to "Authors Index", authors_path%>
+
+<h1>Add Author</h1>
+
+<%=form_for @book_author do |f|%>
+<p>
+<%=f.label :book_id %>
+<%=f.text_field :book_id %>
+</p>
+<p>
+<%=f.label :author_id%>
+<%=f.text_field :author_id%>
+</p>
+<%= f.submit%>
+<%end%>

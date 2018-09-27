@@ -1,0 +1,14 @@
+<%= link_to "Books Index", books_path%><br>
+<%= link_to "Authors Index", authors_path%>
+
+<h1>Authors!</h1>
+
+<%=link_to "New Author", new_author_path%>
+
+<ul>
+<% @authors.each do |author| %>
+  <li>
+  <%=link_to author.name, author %> (b. <%= author.birth_year%>)
+  </li>
+<%end%>
+</ul>

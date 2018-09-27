@@ -1,0 +1,12 @@
+<%= link_to "Books Index", books_path%><br>
+<%= link_to "Authors Index", authors_path%>
+
+<h1>Books!</h1>
+
+<ul>
+<% @books.each do |book| %>
+  <li>
+  <%=link_to book.title, book %> (<%= book.pages%> pages)
+  </li>
+<%end%>
+</ul>

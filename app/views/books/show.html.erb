@@ -1,0 +1,25 @@
+<%= link_to "Books Index", books_path%><br>
+<%= link_to "Authors Index", authors_path%>
+
+<h1><%=@book.title%> (<%= @book.pages%>)</h1>
+
+<h2>Authors:</h2>
+
+  <%@authors.each do |author|%>
+  <li>
+  <%=author.name%> (b. <%= author.birth_year%>)<br>
+  <%= link_to "Remove Author", @all_book_authors.find_by(book_id:@book.id,author_id:author.id), method: :delete %>
+  </li>
+
+<%end%><br>
+
+
+<%= form_for BookAuthor.new do |f| %>
+    <%= f.hidden_field :book_id, value: @book[:id] %>
+
+    <%= f.label "Author" %>
+
+     <%=f.collection_select( :author_id, @all_authors, :id, :name)%>
+
+  <%= f.submit "Add Author"%>
+<% end %>

@@ -1,0 +1,9 @@
+<%= link_to "Books Index", books_path%><br>
+<%= link_to "Authors Index", authors_path%>
+
+<h1><%=@author.name%> (b. <%= @author.birth_year%>)</h1>
+
+<%= link_to "Edit #{@author.name}", edit_author_path(@author)%><br>
+<br>
+
+<%= link_to "Delete #{@author.name}", @author, method: :delete %>
