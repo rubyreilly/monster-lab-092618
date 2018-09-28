@@ -7,7 +7,8 @@
 
   <%@authors.each do |author|%>
   <li>
-  <%=author.name%> (b. <%= author.birth_year%>)<br>
+  <%=link_to "#{author.name} (b. #{author.birth_year})", author_path(author)%>
+  <br>
   <%= link_to "Remove Author", @all_book_authors.find_by(book_id:@book.id,author_id:author.id), method: :delete %>
   </li>
 
